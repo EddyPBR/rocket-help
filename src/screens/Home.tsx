@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import { HStack, VStack, Text, Heading, FlatList, Center, IconButton, useTheme } from "native-base";
 import { SignOut, ChatTeardropText } from "phosphor-react-native";
  
@@ -9,11 +10,39 @@ import { Order } from "../components/Order";
 import { Button } from "../components/Button";
 
 export const Home: FC = () => {
+  const navigation = useNavigation();
   const { colors } = useTheme();
 
   const [statusSelected, setStatusSelected] = useState<"open" | "closed">("open");
 
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([
+    {
+      id: "1",
+      patrimony: "123456",
+      when: "18/07/2022 às 14:00",
+      status: "open" as "open" | "closed"
+    },
+    {
+      id: "2",
+      patrimony: "123456",
+      when: "18/07/2022 às 14:00",
+      status: "open" as "open" | "closed"
+    },
+    {
+      id: "3",
+      patrimony: "123456",
+      when: "18/07/2022 às 14:00",
+      status: "open" as "open" | "closed"
+    }
+  ]);
+
+  const handleNewOrder = () => {
+    navigation.navigate("new");
+  }
+
+  const handleOpenDetails = (orderId: string) => {
+    navigation.navigate("details", { orderId });
+  }
 
   return (
     <VStack flex={1} pb={6} bg="gray.700">
@@ -42,11 +71,11 @@ export const Home: FC = () => {
           alignItems="center"
         >
           <Heading color="gray.100">
-            Meus chamados
+            Solicitações
           </Heading>
 
           <Text color="gray.200">
-            3
+            {orders.length}
           </Text>
         </HStack>
 
@@ -69,7 +98,12 @@ export const Home: FC = () => {
         <FlatList
           data={orders}
           keyExtractor={item => item.id}
-          renderItem={({ item }) => <Order data={item} />}
+          renderItem={({ item }) => 
+            <Order 
+              data={item} 
+              onPress={() => handleOpenDetails(item.id)} 
+            />
+          }
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 100 }}
           ListEmptyComponent={() => (
@@ -83,7 +117,10 @@ export const Home: FC = () => {
           )}
         />
         
-        <Button title="Nova solicitação" />
+        <Button 
+          title="Nova solicitação"
+          onPress={handleNewOrder}
+        />
       </VStack>
     </VStack>
   );
