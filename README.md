@@ -1,6 +1,41 @@
+# ROCKET HELP
+
+É um sistema de cadastro de tickets de problemas a serem resolvidos, o ticket
+é cadastrado e então o usuário autenticado pode finaliza-lo, assim indicando
+que o ticket foi resolvido.
+<br />
+<br />
+
+## PROTÓTIPO
+
+O protótipo do projeto se encontra na plataforma FIGMA, acesse o
+[prototipo aqui](https://www.figma.com/file/x0VxNBNKwSDXUO2ENG7pLz/Rocket-Help?node-id=47%3A276)
+.
+<br />
+<br />
+
+## EXECUÇÃO
+
+Para executar o projeto, faça o download deste projeto na sua máquina,
+abra o terminal e vá até o diretório do seu projeto, e execute o comando
+`npm install` ou `yarn` para instalar os pacotes.
+
+Após isso siga para os tópicos <b>Criando o firebase</b> e 
+<bConfigurando o expo-firebase</b>, após os tópicos finalizados, é necessário
+conectar um aparelho Android ou iOS via USB ou executar um emulador.
+
+Por fim abra o terminal no projeto e execute o comando:
+`expo run:android` ou `expo run:ios`.
+
+Em casos de não funcionar, a Rocketseat possui um manual mais detalhado
+de como executar aplicações expo com firebase. Acesse o 
+[link](https://react-native.rocketseat.dev/) e saiba mais.
+<br />
+<br />
+
 ## CRIANDO O FIREBASE
 
-O processo é bem simples, acesse o [firebase]("https://firebase.google.com/")
+O processo é bem simples, acesse o [firebase](https://firebase.google.com/)
 clique no botão <b>Começar</b> e depois em <b>Adicionar projeto</b> agora
 informe o nome do projeto Ex.: <b>rocket-help</b> e confirme.
 
@@ -46,6 +81,8 @@ igual ao do passo anterior, agora no campo <b>Apelido do app (opcional)</b>
 preencha com `Android` o restantes dos passos é igual ao do iOS.
 
 pronto tudo configurado, agora siga para o próximo tópico.
+<br />
+<br />
 
 ## CONFIGURANDO O EXPO-FIREBASE
 
